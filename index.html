@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Документация проекта платформы поиска строительных специалистов: web, Android и дизайн-система."
+    />
+    <title>Документация проекта | Платформа строительных специалистов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="reading-progress" aria-hidden="true">
+      <span id="readingProgress"></span>
+    </div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Документация проекта - наверх">
+        <img class="brand-logo" src="assets/images/mint-logo.gif" alt="Mint" />
+      </a>
+
+      <div class="topbar-actions">
+        <button class="icon-button mobile-menu" id="menuButton" aria-label="Открыть навигацию" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v2.25M12 18.75V21M3 12h2.25M18.75 12H21M5.64 5.64l1.59 1.59m9.54 9.54 1.59 1.59m0-12.72-1.59 1.59M7.23 16.77l-1.59 1.59M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+          </svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.3 15.4A8.5 8.5 0 0 1 8.6 3.7a8.5 8.5 0 1 0 11.7 11.7Z" />
+          </svg>
+          <span id="themeLabel">Тёмная тема</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" id="sidebar" aria-label="Разделы документации">
+        <div class="sidebar-heading">Документация</div>
+        <nav class="tabs" id="tabNavigation" role="tablist" aria-label="Тип документации">
+          <button class="tab-button active" type="button" role="tab" data-tab="web" aria-selected="true" aria-controls="documentBody">
+            <span class="tab-icon">&lt;/&gt;</span>
+            <span><strong>Web-приложение</strong><small>React + Node.js + PostgreSQL</small></span>
+          </button>
+          <button class="tab-button" type="button" role="tab" data-tab="mobile" aria-selected="false" aria-controls="documentBody">
+            <span class="tab-icon">A</span>
+            <span><strong>Android-приложение</strong><small>Flutter + общий REST API</small></span>
+          </button>
+          <button class="tab-button" type="button" role="tab" data-tab="design" aria-selected="false" aria-controls="documentBody">
+            <span class="tab-icon">UI</span>
+            <span><strong>Интерфейс и дизайн</strong><small>Общая дизайн-система</small></span>
+          </button>
+          <button class="tab-button" type="button" role="tab" data-tab="resources" aria-selected="false" aria-controls="documentBody">
+            <span class="tab-icon">?</span>
+            <span><strong>Полезные источники</strong><small>Ссылки, ИИ и помощь</small></span>
+          </button>
+        </nav>
+      </aside>
+
+      <div class="backdrop" id="backdrop"></div>
+
+      <main class="content" id="mainContent">
+        <section class="hero">
+          <div class="hero-label">Техническое задание / Documentation</div>
+          <h1>Платформа поиска<br />строительных специалистов</h1>
+          <p class="hero-description">
+            Единое руководство по разработке веб-сервиса, Android-приложения и согласованной
+            дизайн-системы продукта.
+          </p>
+          <div class="stack-badges" aria-label="Технологический стек">
+            <span>React</span><span>Flutter</span><span>Node.js</span><span>PostgreSQL</span><span>REST API</span>
+          </div>
+        </section>
+
+        <section class="document-panel" aria-live="polite">
+          <header class="document-header" id="documentHeader"></header>
+          <article class="document-body" id="documentBody" role="tabpanel">
+            <div class="loader" role="status">
+              <span></span>
+              <p>Загружаем документацию...</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Вернуться наверх">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6" /></svg>
+    </button>
+    <script src="assets/js/documentation-content.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
