@@ -2,6 +2,9 @@
   --primary: #f97316;
   --primary-dark: #dc5812;
   --primary-soft: #fff1e8;
+  --danger: #c81e1e;
+  --danger-soft: #fff1f2;
+  --danger-border: #f4b4bb;
   --navy: #102942;
   --navy-soft: #193751;
   --background: #f7f8fa;
@@ -23,6 +26,9 @@
   --primary: #ff812f;
   --primary-dark: #f97316;
   --primary-soft: rgba(249, 115, 22, 0.15);
+  --danger: #ff7474;
+  --danger-soft: rgba(190, 24, 45, 0.14);
+  --danger-border: rgba(248, 113, 113, 0.42);
   --navy: #112d48;
   --navy-soft: #183955;
   --background: #080e14;
@@ -183,17 +189,17 @@ a {
   text-transform: uppercase;
 }
 
-.tabs {
+.courses {
   display: grid;
   gap: 5px;
 }
 
-.tab-button {
+.course-button {
   width: 100%;
   display: flex;
   gap: 12px;
   align-items: center;
-  padding: 12px 11px;
+  padding: 15px 12px;
   text-align: left;
   border: 0;
   border-radius: 9px;
@@ -202,38 +208,57 @@ a {
   transition: color 0.2s, background 0.2s;
 }
 
-.tab-button:hover {
+.course-button:hover {
   color: var(--text);
   background: var(--surface-alt);
 }
 
-.tab-button.active {
+.course-button.active {
   color: var(--primary-dark);
   background: var(--primary-soft);
 }
 
-.tab-icon {
-  width: 22px;
-  flex: 0 0 22px;
-  text-align: center;
-  font: 700 13px "Roboto Mono", monospace;
+.course-number {
+  width: 35px;
+  height: 35px;
+  flex: 0 0 35px;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 9px;
+  background: var(--surface-alt);
 }
 
-.tab-button strong {
+.course-button.active .course-number {
+  color: #fff;
+  background: var(--primary);
+}
+
+.course-button strong {
   display: block;
   color: var(--text);
-  font-size: 13.5px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
 }
 
-.tab-button.active strong {
+.course-button.active strong {
   color: var(--primary-dark);
 }
 
-.tab-button small {
+.course-button small {
   display: block;
+  color: var(--text-muted);
   font-size: 11px;
   font-weight: 600;
+}
+
+.course-hint {
+  margin: 22px 11px 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 .content {
@@ -288,8 +313,44 @@ a {
   background: var(--surface);
 }
 
+.module-tabs {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 42px;
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--surface);
+}
+
+.module-tab {
+  min-width: 0;
+  padding: 11px 17px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 750;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  transition: color 0.2s, background 0.2s;
+  overflow-wrap: anywhere;
+}
+
+.module-tab:hover {
+  color: var(--text);
+  background: var(--surface-alt);
+}
+
+.module-tab.active {
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+}
+
 .document-panel {
-  margin-top: 50px;
+  margin-top: 20px;
   min-width: 0;
   max-width: 100%;
 }
@@ -414,6 +475,21 @@ a {
 .doc-section .block-label {
   margin-top: 16px;
   color: var(--text);
+  font-weight: 700;
+}
+
+.doc-section.github-warning {
+  border-color: var(--danger-border);
+  border-left: 4px solid var(--danger);
+  background: var(--danger-soft);
+}
+
+.doc-section.github-warning h3,
+.doc-section.github-warning p {
+  color: var(--danger);
+}
+
+.doc-section.github-warning p {
   font-weight: 700;
 }
 
@@ -677,11 +753,21 @@ a {
   }
 
   .content {
-    width: calc(100vw - 36px);
-    max-width: calc(100vw - 36px);
-    margin-right: 18px;
-    margin-left: 18px;
-    padding: 32px 0 70px;
+    width: auto;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 32px 18px 70px;
+    overflow: hidden;
+  }
+
+  .hero,
+  .stack-badges,
+  .module-tabs,
+  .document-panel {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     overflow: hidden;
   }
 
@@ -704,7 +790,19 @@ a {
   .document-panel {
     width: 100%;
     max-width: 100%;
-    margin-top: 38px;
+    margin-top: 14px;
+  }
+
+  .module-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 32px;
+  }
+
+  .module-tab {
+    padding: 10px 8px;
+    font-size: 12px;
+    word-break: break-word;
   }
 
   .document-header {

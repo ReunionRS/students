@@ -44,41 +44,40 @@
 
     <div class="layout">
       <aside class="sidebar" id="sidebar" aria-label="Разделы документации">
-        <div class="sidebar-heading">Документация</div>
-        <nav class="tabs" id="tabNavigation" role="tablist" aria-label="Тип документации">
-          <button class="tab-button active" type="button" role="tab" data-tab="web" aria-selected="true" aria-controls="documentBody">
-            <span class="tab-icon">&lt;/&gt;</span>
-            <span><strong>Web-приложение</strong><small>React + Node.js + PostgreSQL</small></span>
+        <div class="sidebar-heading">Курсы</div>
+        <nav class="courses" aria-label="Выбор курса">
+          <button class="course-button active" type="button" data-course="course-2" aria-current="page">
+            <span class="course-number">2</span>
+            <span><strong>2 курс</strong><small>Проект по разработке</small></span>
           </button>
-          <button class="tab-button" type="button" role="tab" data-tab="mobile" aria-selected="false" aria-controls="documentBody">
-            <span class="tab-icon">A</span>
-            <span><strong>Android-приложение</strong><small>Flutter + общий REST API</small></span>
+          <button class="course-button" type="button" data-course="course-3-apps">
+            <span class="course-number">3</span>
+            <span><strong>3 курс</strong><small>Разработка приложений</small></span>
           </button>
-          <button class="tab-button" type="button" role="tab" data-tab="design" aria-selected="false" aria-controls="documentBody">
-            <span class="tab-icon">UI</span>
-            <span><strong>Интерфейс и дизайн</strong><small>Общая дизайн-система</small></span>
-          </button>
-          <button class="tab-button" type="button" role="tab" data-tab="resources" aria-selected="false" aria-controls="documentBody">
-            <span class="tab-icon">?</span>
-            <span><strong>Полезные источники</strong><small>Ссылки, ИИ и помощь</small></span>
+          <button class="course-button" type="button" data-course="course-3-games">
+            <span class="course-number">3</span>
+            <span><strong>3 курс</strong><small>Разработка игр</small></span>
           </button>
         </nav>
+        <p class="course-hint">Материалы каждого курса находятся внутри своего раздела.</p>
       </aside>
 
       <div class="backdrop" id="backdrop"></div>
 
       <main class="content" id="mainContent">
         <section class="hero">
-          <div class="hero-label">Техническое задание / Documentation</div>
-          <h1>Платформа поиска<br />строительных специалистов</h1>
-          <p class="hero-description">
+          <div class="hero-label" id="heroLabel">2 курс / Техническое задание</div>
+          <h1 id="heroTitle">Платформа поиска<br />строительных специалистов</h1>
+          <p class="hero-description" id="heroDescription">
             Единое руководство по разработке веб-сервиса, Android-приложения и согласованной
             дизайн-системы продукта.
           </p>
-          <div class="stack-badges" aria-label="Технологический стек">
+          <div class="stack-badges" id="stackBadges" aria-label="Технологический стек">
             <span>React</span><span>Flutter</span><span>Node.js</span><span>PostgreSQL</span><span>REST API</span>
           </div>
         </section>
+
+        <nav class="module-tabs" id="tabNavigation" role="tablist" aria-label="Материалы выбранного курса"></nav>
 
         <section class="document-panel" aria-live="polite">
           <header class="document-header" id="documentHeader"></header>
@@ -96,6 +95,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6" /></svg>
     </button>
     <script src="assets/js/documentation-content.js"></script>
+    <script src="assets/js/course-3-content.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
